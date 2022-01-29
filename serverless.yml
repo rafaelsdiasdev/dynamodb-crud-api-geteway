@@ -29,6 +29,7 @@ functions:
         Action:
           - 'dynamodb:GetItem'
         Resource: !GetAtt PostsTable.Arn
+
   createPost:
     handler: api.createPost
     name: create-post
@@ -95,12 +96,7 @@ resources:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: ${self:custom.postsTableName}
-        AttributeDefinitions:
-          - AttributeName: postId
-            AttributeType: S
-        KeySchema:
-          - AttributeName: postId
-            KeyType: HASH
+
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1

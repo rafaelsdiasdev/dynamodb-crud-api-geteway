@@ -18,7 +18,6 @@ const getPost = async (event) => {
       Key: marshall({ postId: event.pathParameters.postId }),
     };
     const { Item } = await db.send(new GetItemCommand(params));
-
     response.body = JSON.stringify({
       message: 'Successfully retrieved post.',
       data: Item ? unmarshall(Item) : {},
@@ -73,8 +72,7 @@ const updatePost = async (event) => {
     const objKeys = Object.keys(body);
     const params = {
       TableName: process.env.DYNAMODB_TABLE_NAME,
-      Key: marshall({ postId: uuid }),
-      // Key: marshall({ postId: event.pathParameters.postId }),
+      Key: marshall({ postId: event.pathParameters.postId }),
       UpdateExpression: `SET ${objKeys
         .map((_, index) => `#key${index} = :value${index}`)
         .join(', ')}`,
