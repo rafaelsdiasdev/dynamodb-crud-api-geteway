@@ -29,7 +29,6 @@ functions:
         Action:
           - 'dynamodb:GetItem'
         Resource: !GetAtt PostsTable.Arn
-
   createPost:
     handler: api.createPost
     name: create-post
@@ -44,7 +43,6 @@ functions:
         Action:
           - 'dynamodb:PutItem'
         Resource: !GetAtt PostsTable.Arn
-
   updatePost:
     handler: api.updatePost
     name: update-post
@@ -59,7 +57,6 @@ functions:
         Action:
           - 'dynamodb:UpdateItem'
         Resource: !GetAtt PostsTable.Arn
-
   deletePost:
     handler: api.deletePost
     name: delete-post
@@ -74,7 +71,6 @@ functions:
         Action:
           - 'dynamodb:DeleteItem'
         Resource: !GetAtt PostsTable.Arn
-
   getAllPosts:
     handler: api.getAllPosts
     name: get-all-posts
@@ -96,7 +92,12 @@ resources:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: ${self:custom.postsTableName}
-
+        AttributeDefinitions:
+          - AttributeName: postId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: postId
+            KeyType: HASH
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
