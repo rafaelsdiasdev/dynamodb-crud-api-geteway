@@ -1,2 +1,2 @@
-# genki-food
-Project to study react and crud with nest.js + aws dynamodb
+# dynamodb-crud-api-getway
+CRUD
