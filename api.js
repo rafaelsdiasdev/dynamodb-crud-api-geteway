@@ -7,6 +7,7 @@ const {
   UpdateItemCommand,
 } = require('@aws-sdk/client-dynamodb');
 const { marshall, unmarshall } = require('@aws-sdk/util-dynamodb');
+const { v4: uuid } = require('uuid');
 
 const getPost = async (event) => {
   const response = { statusCode: 200 };
@@ -18,7 +19,6 @@ const getPost = async (event) => {
     };
     const { Item } = await db.send(new GetItemCommand(params));
 
-    console.log({ Item });
     response.body = JSON.stringify({
       message: 'Successfully retrieved post.',
       data: Item ? unmarshall(Item) : {},
@@ -73,7 +73,8 @@ const updatePost = async (event) => {
     const objKeys = Object.keys(body);
     const params = {
       TableName: process.env.DYNAMODB_TABLE_NAME,
-      Key: marshall({ postId: event.pathParameters.postId }),
+      Key: marshall({ postId: uuid }),
+      // Key: marshall({ postId: event.pathParameters.postId }),
       UpdateExpression: `SET ${objKeys
         .map((_, index) => `#key${index} = :value${index}`)
         .join(', ')}`,
