@@ -1,2 +1,2 @@
-# dynamodb-crud-api-getway
+# dynamodb-crud-api-geteway
 CRUD
