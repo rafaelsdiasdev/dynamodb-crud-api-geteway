@@ -95,8 +95,6 @@ resources:
         AttributeDefinitions:
           - AttributeName: postId
             AttributeType: S
-          - AttributeName: email
-            AttributeType: S
         KeySchema:
           - AttributeName: postId
             KeyType: HASH
