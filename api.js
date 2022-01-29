@@ -41,7 +41,7 @@ const createPost = async (event) => {
 
   try {
     const body = {
-      postId: uuid(), // teste
+      postId: uuid(),
       ...JSON.parse(event.body),
     };
     const params = {
@@ -52,7 +52,10 @@ const createPost = async (event) => {
 
     response.body = JSON.stringify({
       message: 'Successfully created post.',
-      createResult,
+      httpRequestCode: createResult['"$metadata'].httpStatusCode,
+      requestId: createResult['"$metadata'].requestId,
+      attempts: createResult['"$metadata'].attempts,
+      totalRetryDelay: createResult['"$metadata'].totalRetryDelay,
     });
   } catch (e) {
     console.error(e);
