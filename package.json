@@ -1,0 +1,25 @@
+{
+  "name": "genki-food",
+  "version": "1.0.0",
+  "description": "Project to study react and crud with nest.js + aws dynamodb",
+  "main": "api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rafaelsdiasdev/genki-food.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rafaelsdiasdev/genki-food/issues"
+  },
+  "homepage": "https://github.com/rafaelsdiasdev/genki-food#readme",
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.49.0",
+    "@aws-sdk/util-dynamodb": "^3.49.0",
+    "serverless-iam-roles-per-function": "^3.2.0"
+  }
+}
