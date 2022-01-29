@@ -52,10 +52,10 @@ const createPost = async (event) => {
 
     response.body = JSON.stringify({
       message: 'Successfully created post.',
-      httpRequestCode: createResult['"$metadata'].httpStatusCode,
-      requestId: createResult['"$metadata'].requestId,
-      attempts: createResult['"$metadata'].attempts,
-      totalRetryDelay: createResult['"$metadata'].totalRetryDelay,
+      httpRequestCode: createResult['$metadata'].httpStatusCode,
+      requestId: createResult['$metadata'].requestId,
+      attempts: createResult['$metadata'].attempts,
+      totalRetryDelay: createResult['$metadata'].totalRetryDelay,
     });
   } catch (e) {
     console.error(e);
