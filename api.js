@@ -41,7 +41,7 @@ const createPost = async (event) => {
 
   try {
     const body = {
-      postId: uuid.toString(), // teste
+      postId: uuid(), // teste
       ...JSON.parse(event.body),
     };
     const params = {
