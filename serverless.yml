@@ -38,6 +38,7 @@ functions:
       - http:
           path: post
           method: POST
+          cors: true
     iamRoleStatements:
       - Effect: 'Allow'
         Action:
@@ -52,6 +53,7 @@ functions:
       - http:
           path: post/{postId}
           method: PUT
+          cors: true
     iamRoleStatements:
       - Effect: 'Allow'
         Action:
@@ -66,6 +68,7 @@ functions:
       - http:
           path: post/{postId}
           method: DELETE
+          cors: true
     iamRoleStatements:
       - Effect: 'Allow'
         Action:
@@ -80,6 +83,7 @@ functions:
       - http:
           path: posts
           method: GET
+          cors: true
     iamRoleStatements:
       - Effect: 'Allow'
         Action:
